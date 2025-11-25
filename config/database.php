@@ -1,19 +1,27 @@
-<?php 
-$servername = "localhost";
-$username = "";
-$password = "";
-$dbname = "";
+<?php
+/*
+naam script     : 
+omschrijving    : 
+Auteur          : 
+project         : 
+Aanmaakdatum    : 
+*/ 
+class Database {
+    private $host = "localhost";
+    private $dbname = "hollenbe_vesuvio";
+    private $username = "root";
+    private $password = "";
 
-
-try {
-    //maakt connectie naar het database
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    /*dit is een pdo-method om de instllingen aan te passen van pdo
-    hierdoor kan je elke db fout zien*/
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
-} catch(PDOException $error){
-    //hier krijg je de db fouten te zien die werden opgepikt
-    echo "Connection failed: " . $error->getMessage();
+    public function connect() {
+        try {
+            return new PDO(
+                "mysql:host=$this->host;dbname=$this->dbname;charset=utf8",
+                $this->username,
+                $this->password
+            );
+        } catch (PDOException $e) {
+            die("Fout met de database: " . $e->getMessage());
+        }
+    }
 }
 ?>
