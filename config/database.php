@@ -1,10 +1,10 @@
 <?php
 /*
-naam script     : 
-omschrijving    : 
-Auteur          : 
-project         : 
-Aanmaakdatum    : 
+naam script     : database.php
+omschrijving    : hier s de code van de database connectie met oop programming
+Auteur          : hussen
+project         : scootershop
+Aanmaakdatum    : 13/11/2025
 */ 
 class Database {
     private $host = "localhost";

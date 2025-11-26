@@ -1,7 +1,7 @@
 <?php 
 /*
-naam script     : parts.php
-omschrijving    : dit is de oop voor parts met all zijn functies
+naam script     : orderrules.php
+omschrijving    : dit is de oop voor orderrules met all zijn functies
 Auteur          : hussen
 project         : scootershop
 Aanmaakdatum    : 25/11/2025
@@ -36,8 +36,8 @@ class partsinfo {
     }
   
     // Delete
-    public function deleteParts($id) {
-        $query = "DELETE FROM parts WHERE id = :id";
+    public function deleteOrder($id) {
+        $query = "DELETE FROM orders WHERE id = :id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();

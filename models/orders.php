@@ -1,7 +1,7 @@
 <?php 
 /*
 naam script     : orders.php
-omschrijving    : dit is voor onderdeel a van de opdracht hier schrijf ik de code zodat je de klant en artikelen kan zien
+omschrijving    : dit is de crud van tabel orders 
 Auteur          : hussen
 project         : scootershop
 Aanmaakdatum    : 13/11/2025
@@ -17,6 +17,7 @@ class klantinfo {
         $this->conn = $db->connect();
     }
 
+    //de read functie van crud 
     public function getOrders() {
           $query = "SELECT * FROM orders";
         $stmt = $this->conn->prepare($query);
@@ -24,6 +25,27 @@ class klantinfo {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    //de update functie van crud
+    public function updateOrders($date, $company_name, $recipient, $addressline1, $addressline2, $country, $status){
+        $query = "UPDATE orders SET date = :date, company_name = :company_name, recipient = :recipient, addressline1 = :addressline1, addressline2 = :addressline2, country = :country, status = :status WHERE id = :id;";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':company_name', $company_name);
+        $stmt->bindParam(':recipient', $recipient);
+        $stmt->bindParam(':addressline1', $addressline1);
+        $stmt->bindParam(':addressline2', $addressline2);
+        $stmt->bindParam(':country', $country);
+        $stmt->bindParam(':status', $status);
+        return $stmt->execute();
+    }
   
+    // Delete
+    public function deleteOrder($id) {
+        $query = "DELETE FROM orders WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
+
 }
 ?>
