@@ -6,9 +6,9 @@ Auteur          : hussen
 project         : scootershop
 Aanmaakdatum    : 25/11/2025
 */ 
-require_once "./scootershopexamen/config/database.php";
+require_once "../config/database.php";
 
-class partsinfo {
+class partsInfo {
     
     private $conn;
 
