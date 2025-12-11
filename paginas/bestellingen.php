@@ -78,7 +78,7 @@ $artikelen = $parts->getParts();
 
     <?php  
         // haal de parts voor deze order op
-        $orderParts = $klantInfo->getPartsByOrderId($order['id']);
+        $orderParts = $parts->getPartsByOrderId($order['id']);
 
         foreach ($orderParts as $p) {
             echo "- " . $p['part'] . "<br>";

@@ -59,19 +59,6 @@ class klantInfo {
         return $stmt->execute();
     }
 
-public function getPartsByOrderId($orderId) {
-    $query = "SELECT p.id, p.part, p.purchase_price, p.sell_price
-              FROM parts p
-              JOIN orderrules o ON p.id = o.part_id
-              WHERE o.order_id = :order_id";
-
-    $stmt = $this->conn->prepare($query);
-    $stmt->bindParam(':order_id', $orderId);
-    $stmt->execute();
-
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
 
 }
 ?>

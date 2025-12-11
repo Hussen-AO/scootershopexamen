@@ -57,6 +57,7 @@ nav.navbar ul li a.active {
     <ul>
         <li><a href="<?= $base_url ?>index.php">dashboard</a></li>
         <li><a href="<?= $base_url ?>paginas/bestellingen.php">Bestellingen</a></li>
+        <li><a href="<?= $base_url ?>paginas/magazijn.php">Magazijn</a></li>
 
 
 
